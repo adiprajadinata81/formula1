@@ -6,26 +6,110 @@
 	<title>Membuat Navbar Responsive Dengan HTML dan CSS</title>
 	<link rel="stylesheet" href="style.css">
 <style>
-<nav class="navbar">
-	<div class="container">
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: #d6eff4;
+}
+.navbar{
+	background: #212121;
+	margin: 0;
+	padding: 20px 30px;
+}
  
-		<a href="https://www.malasngoding.com" class="logo">Malas Ngoding</a>
-		
-		<ul class="menu">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Tentang</a></li>
-			<li><a href="#">Produk</a></li>
-			<li><a href="#">Layanan</a></li>
-			<li><a href="#">Kontak Kami</a></li>
-		</ul>
+.logo{
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	color: white;
+}
  
+.container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.tombol{
+	display: none;
+	color: white;
+	font-size: 14pt;			
+}
  
-		<div class="tombol">
-			&#9776;
-		</div>
+.tombol:hover{
+	cursor: pointer;
+}
  
-	</div>
-</nav>
+.menu{
+	margin: 0;
+	display: flex;
+	list-style: none;
+	padding: 0;			
+}
+ 
+.menu li{
+	padding-left: 0;
+	margin-right: 10px;
+}
+ 
+.menu li a{
+	padding:10px;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -38,11 +122,11 @@
 			<ul class="menu">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Tentang</a></li>
-				<li><a href="#">Produk</a></li>
+<li><a href="#">Produk</a></li>
 				<li><a href="#">Layanan</a></li>
 				<li><a href="#">Kontak Kami</a></li>
 			</ul>
-
+			
 			<div class="tombol">
 				&#9776;
 			</div>
