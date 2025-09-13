@@ -1,112 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Membuat Navbar Responsive Dengan HTML dan CSS</title>
-	<style>
-		body {
-			margin: 0;
-			font-family: Arial, sans-serif;
-			background: #d6eff4;
-		}
-		.navbar{
-			background: #212121;
-			margin: 0;
-			padding: 20px 30px;
-		}
-		 
-		.logo{
-			font-size: 14pt;
-			font-weight: bold;
-			text-decoration: none;
-			color: white;
-		}
-		 
-		.container{
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.tombol{
-			display: none;
-			color: white;
-			font-size: 20pt;			
-			cursor: pointer;
-		}
-		 
-		.menu{
-			margin: 0;
-			display: flex;
-			list-style: none;
-			padding: 0;			
-		}
-		 
-		.menu li{
-			margin-right: 10px;
-		}
-		 
-		.menu li a{
-			padding:10px;
-			color: white;
-			text-decoration: none;
-			display: inline-block;
-		}
-
-		/* RESPONSIVE */
-		@media (max-width: 768px){
-			.menu {
-				display: none; /* disembunyikan di layar kecil */
-				flex-direction: column;
-				width: 100%;
-				background: #333;
-				margin-top: 10px;
-			}
-			.menu.active {
-				display: flex; /* tampil saat burger diklik */
-			}
-			.menu li {
-				text-align: center;
-				margin: 5px 0;
-			}
-			.tombol {
-				display: block; /* burger muncul */
-			}
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Skilvul Style</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
-	<nav class="navbar">
-		<div class="container">
-			<a href="#" class="logo">Malas Ngoding</a>
-			
-			<ul class="menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Tentang</a></li>
-				<li><a href="#">Produk</a></li>
-				<li><a href="#">Layanan</a></li>
-				<li><a href="#">Kontak Kami</a></li>
-			</ul>
-			
-			<div class="tombol">&#9776;</div>
-		</div>
-	</nav>
- 
-	<div>
-		<center><h2>Panduan Membuat Navbar Responsive</h2></center>
-	</div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Logo</div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </nav>
 
-	<script>
-		// toggle menu saat burger ditekan
-		const tombol = document.querySelector('.tombol');
-		const menu = document.querySelector('.menu');
-		tombol.addEventListener('click', () => {
-			menu.classList.toggle('active');
-		});
-	</script>
- 
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">✖</button>
+    <div class="profile">
+      <img src="https://via.placeholder.com/60" alt="Profile">
+      <h3>Adi Prajadinata</h3>
+    </div>
+    <ul class="menu">
+      <li><a href="#">Belajar</a></li>
+      <li><a href="#">Program</a></li>
+      <li><a href="#">Bootcamp</a></li>
+      <li><a href="#">Komunitas</a></li>
+      <li><a href="#">Join Us!</a></li>
+      <li><a href="#">Showcase</a></li>
+      <li><a href="#">Dampak</a></li>
+    </ul>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
