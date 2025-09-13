@@ -4,139 +4,109 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Membuat Navbar Responsive Dengan HTML dan CSS</title>
-	<link rel="stylesheet" href="style.css">
-<style>
+	<style>
+		body {
+			margin: 0;
+			font-family: Arial, sans-serif;
+			background: #d6eff4;
+		}
+		.navbar{
+			background: #212121;
+			margin: 0;
+			padding: 20px 30px;
+		}
+		 
+		.logo{
+			font-size: 14pt;
+			font-weight: bold;
+			text-decoration: none;
+			color: white;
+		}
+		 
+		.container{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-body {
-	margin: 0;
-	font-family: Arial, sans-serif;
-	background: #d6eff4;
-}
-.navbar{
-	background: #212121;
-	margin: 0;
-	padding: 20px 30px;
-}
- 
-.logo{
-	font-size: 14pt;
-	font-weight: bold;
-	text-decoration: none;
-	color: white;
-}
- 
-.container{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+		.tombol{
+			display: none;
+			color: white;
+			font-size: 20pt;			
+			cursor: pointer;
+		}
+		 
+		.menu{
+			margin: 0;
+			display: flex;
+			list-style: none;
+			padding: 0;			
+		}
+		 
+		.menu li{
+			margin-right: 10px;
+		}
+		 
+		.menu li a{
+			padding:10px;
+			color: white;
+			text-decoration: none;
+			display: inline-block;
+		}
 
-.tombol{
-	display: none;
-	color: white;
-	font-size: 14pt;			
-}
- 
-.tombol:hover{
-	cursor: pointer;
-}
- 
-.menu{
-	margin: 0;
-	display: flex;
-	list-style: none;
-	padding: 0;			
-}
- 
-.menu li{
-	padding-left: 0;
-	margin-right: 10px;
-}
- 
-.menu li a{
-	padding:10px;
-	color: white;
-	text-decoration: none;
-	display: inline-block;
-}
-</style>
+		/* RESPONSIVE */
+		@media (max-width: 768px){
+			.menu {
+				display: none; /* disembunyikan di layar kecil */
+				flex-direction: column;
+				width: 100%;
+				background: #333;
+				margin-top: 10px;
+			}
+			.menu.active {
+				display: flex; /* tampil saat burger diklik */
+			}
+			.menu li {
+				text-align: center;
+				margin: 5px 0;
+			}
+			.tombol {
+				display: block; /* burger muncul */
+			}
+		}
+	</style>
 </head>
 <body>
  
 	<nav class="navbar">
 		<div class="container">
- 
-			<a href="https://www.malasngoding.com" class="logo">Malas Ngoding</a>
+			<a href="#" class="logo">Malas Ngoding</a>
 			
 			<ul class="menu">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Tentang</a></li>
-<li><a href="#">Produk</a></li>
+				<li><a href="#">Produk</a></li>
 				<li><a href="#">Layanan</a></li>
 				<li><a href="#">Kontak Kami</a></li>
 			</ul>
 			
-			<div class="tombol">
-				&#9776;
-			</div>
- 
+			<div class="tombol">&#9776;</div>
 		</div>
 	</nav>
  
 	<div>
-		<center><h2>Panduan Membuat Navbar Responsive dari <a href="https://www.malasngoding.com/membuat-navbar-responsive-html-css">www.malasngoding.com</a></h2></center>
+		<center><h2>Panduan Membuat Navbar Responsive</h2></center>
 	</div>
+
+	<script>
+		// toggle menu saat burger ditekan
+		const tombol = document.querySelector('.tombol');
+		const menu = document.querySelector('.menu');
+		tombol.addEventListener('click', () => {
+			menu.classList.toggle('active');
+		});
+	</script>
  
 </body>
 </html>
+
