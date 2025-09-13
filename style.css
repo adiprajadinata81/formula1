@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
 /* Navbar */
@@ -50,12 +51,13 @@ body {
   top: 0;
   left: -280px;
   width: 260px;
-  height: 100%;
+  height: 100vh; /* Menggunakan viewport height */
   background: #3d4852;
   color: #fff;
   padding: 20px;
   transition: 0.3s ease;
   z-index: 1200;
+  overflow-y: auto; /* Memungkinkan scroll jika konten panjang */
 }
 
 .sidebar.active {
@@ -71,11 +73,12 @@ body {
   position: absolute;
   top: 15px;
   right: 15px;
+  padding: 5px;
 }
 
 .sidebar .profile {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 40px 0 30px; /* Margin yang lebih baik */
 }
 
 .sidebar .profile img {
@@ -83,12 +86,14 @@ body {
 }
 
 .sidebar .profile h3 {
-  margin: 10px 0 0;
+  margin: 15px 0 0;
+  font-size: 18px;
 }
 
 .sidebar .menu {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar .menu li {
@@ -99,6 +104,14 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  display: block;
+  padding: 8px 5px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sidebar .menu li a:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Overlay */
@@ -121,13 +134,12 @@ body {
 }
 
 /* ================== Responsive ================== */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .nav-links {
-    display: none; /* Sembunyikan menu desktop */
+    display: none; /* Sembunyikan menu desktop lebih awal */
   }
 
   .menu-toggle {
     display: block; /* Tampilkan hamburger */
   }
 }
-
