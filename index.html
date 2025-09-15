@@ -133,6 +133,13 @@ main {
       quaerat corporis reprehenderit deleniti perspiciatis deserunt nostrum.
       Asperiores, rerum voluptatum!
     </main>
-    <script src="/script.js"></script>
+    <script>
+	    const menuIcon = document.getElementById("menu-icon");
+const menuList = document.getElementById("menu-list");
+
+menuIcon.addEventListener("click", () => {
+  menuList.classList.toggle("hidden");
+});
+    </script>
   </body>
 </html>
