@@ -1,72 +1,81 @@
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+  background-color: #9a9a9a;
 }
 
 nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav div img {
+  width: 50px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-family: "Segoe UI", sans-serif;
+  color: #191919;
+  font-weight: 600;
+  padding: 8px 0;
+  transition: all;
+  transition-duration: 300ms;
+  border-bottom: 1px solid rgba(255, 68, 0, 0);
+}
+
+nav ul li a:hover {
+  color: orangered;
+  border-bottom: 1px solid orangered;
+}
+
+.menu-icon {
+  /* background-color: tomato; */
+  font-size: 28px;
+  display: none;
+}
+
+main {
+  padding-top: 7rem;
+}
+
+@media only screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li:last-of-type {
+    padding-bottom: 8px;
+  }
+
+  nav ul.hidden {
+    display: none;
+  }
+
+  .menu-icon {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
-
-.hamburger {
-    display: none; /* Sembunyikan di desktop */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.hamburger .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: white;
-}
-
-/* Media Query untuk layar kecil (responsive) */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Sembunyikan menu secara default di layar kecil */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex; /* Tampilkan menu saat aktif */
-    }
-
-    .hamburger {
-        display: block; /* Tampilkan hamburger di layar kecil */
-    }
+  }
 }
