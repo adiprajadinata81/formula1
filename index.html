@@ -1,60 +1,68 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navigasi bar</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://unpkg.com/@phosphor-icons/web">
-</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Navigasi bar (versi aksesibel)</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- contoh: perbaiki URL jika pakai Phosphor -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-<nav>
-<div class="brand">
- <img src="images/logo.png" alt="logoNamaPerusahaan">
-</div>
-<button id="menu-icon" aria-controls="menu-list" aria-expanded="false"></button>
-<ul id="menu-list" class="hidden">
-<li>
-<a href="#">Home</a>
-</li>
-<li>
-<a href="#">Home</a>
-</li>
-<li>
-<a href="#">Home</a>
-</li>
-<li>
-<a href="#">Home</a>
-</li>
-<li>
-<a href="#">Home</a>
-</li>
-<li>
-<a href="#">Work</a>
-</li>
-<li>
-<a href="#">Tech Stack</a>
-</li>
-<li>
-<a href="#">Contact</a>
-</li>
-</ul>
-</nav>
-<main>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus est
-      in voluptatum nesciunt itaque. Voluptatibus ratione illum ducimus impedit
-      minus itaque officia asperiores, maxime quis fugiat odit natus rerum ipsam
-      quaerat corporis reprehenderit deleniti perspiciatis deserunt nostrum.
-      Asperiores, rerum voluptatum!</p>
-</main>
-<script>
-const menuIcon = document.getElementById("menu-icon");
-const menuList = document.getElementById("menu-list");
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="brand">
+      <a href="/" aria-label="Beranda">
+        <img src="images/logo.png" alt="Logo NamaPerusahaan" width="50" height="50">
+      </a>
+    </div>
 
-menuIcon.addEventListener("click", () => {
-  menuList.classList.toggle("hidden");
-});
-</script>
+    <!-- gunakan button agar keyboard-accessible -->
+    <button id="menu-icon" class="menu-icon" aria-controls="menu-list" aria-expanded="false" aria-label="Buka menu">
+      <i class="ph-fill ph-list" aria-hidden="true"></i>
+    </button>
+
+    <ul id="menu-list" class="menu-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Tech Stack</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>...konten...</p>
+  </main>
+
+  <script>
+    // script.js (inline for contoh)
+    const menuIcon = document.getElementById('menu-icon');
+    const menuList = document.getElementById('menu-list');
+
+    // Toggle menu dan update ARIA
+    menuIcon.addEventListener('click', () => {
+      const isOpen = menuList.classList.toggle('open'); // .open tampilkan menu di mobile
+      menuIcon.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Tutup menu dengan Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuList.classList.contains('open')) {
+        menuList.classList.remove('open');
+        menuIcon.setAttribute('aria-expanded', 'false');
+        menuIcon.focus();
+      }
+    });
+
+    // Jika user meresize ke layar besar, pastikan menu tertutup
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && menuList.classList.contains('open')) {
+        menuList.classList.remove('open');
+        menuIcon.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
+
